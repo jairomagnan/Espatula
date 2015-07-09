@@ -64,13 +64,16 @@
         <div class="col-md-4">
         
                 <div class="thumbnail">
-                    <a href=@Url.Action("Cargar","Recetas", New With {.value = 1} )>
+                    <asp:Hyperlink id="navegar2"
+                                   NavigateUrl="Ver.aspx"
+                                   CommandArgument="hola"
+                                   runat="server">
                         <div class="caption">
 
                             <h4>Parfait de Ricotta, Mango y Lima</h4>
 
                         </div>
-                    </a>
+                    </asp:Hyperlink>
                         <img src="http://s3.amazonaws.com/gmi-digital-library/a316d314-8466-4c4a-8f09-fa47e62fd496.jpg" alt="..." class="img-responsive">
                 
                 </div>
