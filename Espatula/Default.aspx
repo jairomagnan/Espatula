@@ -67,6 +67,7 @@
                     <asp:Hyperlink id="navegar2"
                                    NavigateUrl="Ver.aspx"
                                    CommandArgument="hola"
+                                   onClick="getId"
                                    runat="server">
                         <div class="caption">
 

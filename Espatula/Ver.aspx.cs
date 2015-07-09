@@ -127,7 +127,8 @@ namespace Espatula {
         }*/
 
         protected void getId(object sender, EventArgs e){
-            //Obtiene el id
+            String argument = ((Button)sender).CommandArgument;
+            myLabel.Text = "Este es el";
         }
 
     }
