@@ -64,17 +64,13 @@
         <div class="col-md-4">
         
                 <div class="thumbnail">
-                    <asp:Hyperlink id="navegar2"
-                                   NavigateUrl="Ver.aspx"
-                                   CommandArgument="hola"
-                                   onClick="getId"
-                                   runat="server">
+                    <a href="Ver.aspx?id=2">
                         <div class="caption">
 
                             <h4>Parfait de Ricotta, Mango y Lima</h4>
 
                         </div>
-                    </asp:Hyperlink>
+                    </a>
                         <img src="http://s3.amazonaws.com/gmi-digital-library/a316d314-8466-4c4a-8f09-fa47e62fd496.jpg" alt="..." class="img-responsive">
                 
                 </div>

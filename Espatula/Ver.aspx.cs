@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -9,16 +10,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Espatula {
 
     public partial class WebForm1 : System.Web.UI.Page {
 
         StringBuilder table = new StringBuilder();
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            
-            /*if (!Page.IsPostBack)
+        protected void Page_Load(object sender, EventArgs e){
+
+            myLabel.Text = "Hola " + Request.QueryString["id"];
+            if (!Page.IsPostBack)
             {
 
                 DataTable dt = this.GetData();
@@ -57,56 +59,21 @@ namespace Espatula {
 
                 //Append the HTML string to Placeholder.
                 PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
-            }*/
+            }
         }
 
-        /*private DataTable GetData()
+        private DataTable GetData()
         {
 
-            Data.MySqlClient.MySqlConnection msqlConnection = null;
-            msqlConnection = new MySql.Data.MySqlClient.MySqlConnection(“server=localhost;user id=UserName;Password=UserPassword;database=DatabaseName;persist security info=False”);
-                //define the command reference
-            MySql.Data.MySqlClient.MySqlCommand msqlCommand = new MySql.Data.MySqlClient.MySqlCommand();
-                //define the connection used by the command object
-            msqlCommand.Connection = this.msqlConnection;
-                //define the command text
-            msqlCommand.CommandText = "SELECT * FROM TestTable;";
             try
             {
-                //open the connection
-                this.msqlConnection.Open();
-                //use a DataReader to process each record
-                MySql.Data.MySqlClient.MySqlDataReader msqlReader = msqlCommand.ExecuteReader();
-                while (msqlReader.Read())
+                string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+
+                using (MySqlConnection con = new MySqlConnection(constr))
                 {
-                    //do something with each record
-                }
-            }
-            catch (Exception er)
-            {
-                //do something with the exception
-            }
-            finally
-            {
-                //always close the connection
-                this.msqlConnection.Close();
-            }
-
-
-
-
-
-
-            try
-            {
-                //string constr = ConfigurationManager.ConnectionStrings["titanic.ecci.ucr.ac.cr"].ConnectionString;
-                string a = "server=titanic.ecci.ucr.ac.cr;user id=eb04539;Password=eb04539;database=ci2454_eb04539;persist security info=False" ;
-
-                using (SqlConnection con = new SqlConnection(a))
-                {
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Ingredientes"))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Ingredientes"))
                     {
-                        using (SqlDataAdapter sda = new SqlDataAdapter())
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
                             cmd.Connection = con;
                             sda.SelectCommand = cmd;
@@ -124,12 +91,8 @@ namespace Espatula {
 
 
 
-        }*/
-
-        protected void getId(object sender, EventArgs e){
-            String argument = ((Button)sender).CommandArgument;
-            myLabel.Text = "Este es el";
         }
+
 
     }
 
