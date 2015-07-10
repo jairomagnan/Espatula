@@ -1,16 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarReceta.aspx.cs" Inherits="Espatula.AgregarReceta" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AgregarReceta.aspx.cs" Inherits="Espatula.WebForm1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<!DOCTYPE html>
+    <div class="jumbotron">
+        <label id="nombreRecetaLb">Nombre de la receta</label>
+        <input type="text" id="nombreReceta" /><br/>
+        <label id="categoriaLb">Categor&iacute;a</label>
+        <input type="text" id="categoria" /><br/>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+
     
-    </div>
-    </form>
-</body>
-</html>
+   </div>
+    
+</asp:Content>
+
