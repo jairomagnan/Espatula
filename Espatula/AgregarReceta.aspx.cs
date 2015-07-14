@@ -15,7 +15,7 @@ namespace Espatula {
         protected void Page_Load(object sender, EventArgs e) {
 
             if (!IsPostBack) {
-
+                /*
                 String connectionString = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
                 string QueryString = "select name from categorias";
 
@@ -27,7 +27,29 @@ namespace Espatula {
                 categorias.DataSource = ds;
                 categorias.DataTextField = "au_fname";
                 categorias.DataValueField = "au_fname";
-                categorias.DataBind();
+                categorias.DataBind();*/
+
+                try {
+                    string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+
+                    using (MySqlConnection con = new MySqlConnection(constr)) {
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Categorias")) {
+                            using (MySqlDataAdapter sda = new MySqlDataAdapter()) {
+                                cmd.Connection = con;
+                                sda.SelectCommand = cmd;
+                                using (DataSet ds = new DataSet()) {
+                                    sda.Fill(ds);
+
+                                    categorias.DataSource = ds;
+                                    categorias.DataTextField = "nombre";
+                                    categorias.DataValueField = "nombre";
+                                    categorias.DataBind();
+                                    
+                                }
+                            }
+                        }
+                    }
+                } catch (NullReferenceException ex) {  }
             }
            }
     }
