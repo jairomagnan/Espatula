@@ -6,11 +6,29 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Text;
 
 namespace Espatula {
     public partial class WebForm1 : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 
+            if (!IsPostBack) {
+
+                String connectionString = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+                string QueryString = "select name from categorias";
+
+                MySqlConnection myConnection = new MySqlConnection(connectionString);
+                MySqlDataAdapter myCommand = new MySqlDataAdapter(QueryString, myConnection);
+                DataSet ds = new DataSet();
+                myCommand.Fill(ds, "Categorias");
+
+                categorias.DataSource = ds;
+                categorias.DataTextField = "au_fname";
+                categorias.DataValueField = "au_fname";
+                categorias.DataBind();
+            }
            }
     }
 }
