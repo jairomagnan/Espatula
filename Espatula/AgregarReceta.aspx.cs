@@ -30,7 +30,7 @@ namespace Espatula {
                 categorias.DataBind();*/
 
                 try {
-                    string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+                    string constr = "Data Source=http://titanic.ecci.ucr.ac.cr; port=3306; Initial Catalog=ci2454_eb04539;User Id=eb04539;password=eb04539";// ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
 
                     using (MySqlConnection con = new MySqlConnection(constr)) {
                         using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Categorias")) {
