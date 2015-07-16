@@ -15,19 +15,7 @@ namespace Espatula {
         protected void Page_Load(object sender, EventArgs e) {
 
             if (!IsPostBack) {
-                /*
-                String connectionString = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
-                string QueryString = "select name from categorias";
-
-                MySqlConnection myConnection = new MySqlConnection(connectionString);
-                MySqlDataAdapter myCommand = new MySqlDataAdapter(QueryString, myConnection);
-                DataSet ds = new DataSet();
-                myCommand.Fill(ds, "Categorias");
-
-                categorias.DataSource = ds;
-                categorias.DataTextField = "au_fname";
-                categorias.DataValueField = "au_fname";
-                categorias.DataBind();*/
+                
 
                 try {
                     string constr = "Data Source=localhost; port=3306; Initial Catalog=ci2454_eb04539;User Id=eb04539;password=eb04539";// ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
@@ -52,5 +40,21 @@ namespace Espatula {
                 } catch (NullReferenceException ex) {  }
             }
            }
+
+        protected void submitMethod(object sender, EventArgs e) {
+
+            try {
+                string constr = "Data Source=localhost; port=3306; Initial Catalog=ci2454_eb04539;User Id=eb04539;password=eb04539";// ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+
+                using (MySqlConnection con = new MySqlConnection(constr)) {
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO recetas (nombre, instrucciones, imagen, tips, categoria)" + 
+                        "VALUES('"+ nombreReceta.Value + "','"+ instrucciones.Value + "','"+ instrucciones.Value + "','"+ imagen.Value + "','"+ tips.Value +"','"+ categorias.Value + "'" )) {
+
+                            cmd.Connection = con;
+                            cmd.ExecuteReader();
+                    }
+                }
+            } catch (NullReferenceException ex) { }
+        }
     }
 }
