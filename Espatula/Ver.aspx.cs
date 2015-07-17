@@ -58,7 +58,7 @@ namespace Espatula
                                 imagen = Convert.ToString(row[column.ColumnName]);
                                 break;
                             default:
-                                if (i == 3 || i==11 || i==19 || i==27 || i==35)
+                                if (i == 3 || i == 11 || i == 19 || i == 27 || i == 35)
                                 {
                                     ingredientes.Append(row[column.ColumnName] + "<br />");
                                 }
@@ -66,7 +66,7 @@ namespace Espatula
 
                         }
 
-                            ++i;
+                        ++i;
                     }
 
                 }
@@ -74,9 +74,9 @@ namespace Espatula
                 //Table end.
                 nombre.Append("</h2>");
                 instrucciones.Append("</p>");
-                instrucciones = instrucciones.Replace("-"," <br /> -");
-                
-                string imagenACargar = "<img src=\" "+imagen+" \" alt=\"empanadas\">";
+                instrucciones = instrucciones.Replace("-", " <br /> -");
+
+                string imagenACargar = "<img src=\" " + imagen + " \" alt=\"empanadas\">";
                 datos.Append(nombre);
                 datos.Append(imagenACargar);
                 datos.Append(ingredientes);
@@ -91,13 +91,13 @@ namespace Espatula
 
             try
             {
-                //string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
-                string constr = @"Data Source=localhost; Database=espatula; User ID=root; Password=admin";
+                string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+                
                 using (MySqlConnection con = new MySqlConnection(constr))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT r.nombre,r.instrucciones,r.imagen,i.nombre,ri.cantidad,ri.unidadDeMedida,r.tips,r.calificacion "+
-                                                               "FROM Recetas r,Ingredientes i,Rec_Ing ri "+
-                                                               "WHERE r.id= "+valor+" AND r.id = ri.receta AND i.id = ri.ingrediente"))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT r.nombre,r.instrucciones,r.imagen,i.nombre,ri.cantidad,ri.unidadDeMedida,r.tips,r.calificacion " +
+                                                               "FROM Recetas r,Ingredientes i,Rec_Ing ri " +
+                                                               "WHERE r.id= " + valor + " AND r.id = ri.receta AND i.id = ri.ingrediente"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
