@@ -17,6 +17,13 @@
                                 <input type="text" size="40" id="nombreReceta" runat="server"/><br/>
                             </div>
                             <div class="form-group">
+                                <label id="ingredientesLb">Ingredientes</label><br/>
+                                <select id="ingredientes"  runat="server">
+                
+                                </select>
+                                <br />
+                            </div>
+                            <div class="form-group">
                                 <label id="instruccionesLb">Instrucciones de la receta</label><br/>
                                 <textarea name="instruccion" cols="40" rows="6" id="instrucciones" runat="server"></textarea><br />
                             </div>
@@ -36,7 +43,7 @@
                                 <br />
                             </div>
                             <div class="form-group">
-                                <input type="submit" runat="server" onClick="submitMethod"/>
+                                <asp:Button ID="submit" text="Registrar" runat="server" onClick="submitMethod"/>
                             </div>
                         </div>
                     </div>
