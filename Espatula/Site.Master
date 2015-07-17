@@ -50,23 +50,21 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recetas <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href=Ver>Ver recetas</a></li>
+                                <li><a href=VerTodas>Ver recetas</a></li>
                                 <li><a href=AgregarReceta>Agregar recetas</a></li>
-                                <li><a href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/About">Acerca de</a></li>
+                        <li><a runat="server" href="~/Contact">Contacto</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Account/Register">Registro</a></li>
+                                <li><a runat="server" href="~/Account/Login">Ingresar</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
