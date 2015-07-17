@@ -180,8 +180,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-<<<<<<< HEAD
-=======
     <Content Include="Recetas\ver.aspx" />
 >>>>>>> 79849a5e81223edf6d7d8d8287d692cc100051ce
     <Content Include="Ver.aspx" />
@@ -376,8 +374,6 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Recetas\ver.aspx.cs">
       <DependentUpon>ver.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,7 +381,6 @@
     <Compile Include="Recetas\ver.aspx.designer.cs">
       <DependentUpon>ver.aspx</DependentUpon>
     </Compile>
->>>>>>> 79849a5e81223edf6d7d8d8287d692cc100051ce
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
