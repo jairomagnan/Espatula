@@ -21,7 +21,7 @@ namespace Espatula {
                     string constr = "Data Source=localhost; port=3306; Initial Catalog=ci2454_eb04539;User Id=eb04539;password=eb04539";// ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
 
                     using (MySqlConnection con = new MySqlConnection(constr)) {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Categorias"), cmd2 = new MySqlCommand("SELECT * FROM ingredientes")) {
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Categorias")) {
                             using (MySqlDataAdapter sda = new MySqlDataAdapter()) {
                                 cmd.Connection = con;
                                 sda.SelectCommand = cmd;
@@ -33,16 +33,7 @@ namespace Espatula {
                                     categorias.DataValueField = "nombre";
                                     categorias.DataBind();
                                 }
-                                cmd2.Connection = con;
-                                sda.SelectCommand = cmd2;
-                                using (DataSet ds2 = new DataSet()) {
-                                    sda.Fill(ds2);
-
-                                    ingredientes.DataSource = ds2;
-                                    ingredientes.DataTextField = "nombre";
-                                    ingredientes.DataValueField = "nombre";
-                                    ingredientes.DataBind();
-                                }
+                                
                             }
                         }
                     }
@@ -58,17 +49,47 @@ namespace Espatula {
                     MySqlConnection con = new MySqlConnection(constr);
 
                     con.Open();
+
+                    string[] cantidad = Request.Form.GetValues("cantidad");
+                    string[] medida = Request.Form.GetValues("medida");
+                    string[] ingrediente = Request.Form.GetValues("ingrediente");
+
+                    
+
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO recetas (nombre, instrucciones, creador, imagen, tips, categoria) " + "VALUES('"+ nombreReceta.Value + "','"+ instrucciones.Value + "','"+ "1" + "','" + imagen.Value + "','"+ tips.Value +"','"+ categorias.Value + "')", con);
     
                     
                     cmd.ExecuteReader();
 
                     con.Close();
-                            
+
+                    con.Open();
+
+                    MySqlCommand cmd2 = new MySqlCommand("SELECT * FROM recetas Where imagen='"+imagen.Value+"'", con);
+                    cmd2.Connection = con;
+
+                    String idReceta = Convert.ToString(cmd2.ExecuteScalar());
+                    System.Diagnostics.Debug.WriteLine(idReceta);
+
+                    con.Close();
+
+                //    con.Open();
+
+               //     for (int i = 0; i < ingrediente.Length;++i) {
+                        
+               //         MySqlCommand cmd3 = new MySqlCommand("INSERT INTO rec_ing (receta, ingrediente, cantidad, unidadDeMedida) " + "VALUES('" + idReceta + "','" + ingrediente[i] + "','" + cantidad[i] + "','" + medida[i] + "')", con);
+
+
+               //         cmd3.ExecuteReader();
+              //     }
+
+              //      con.Close();
                 
             } catch (NullReferenceException ex) {
                 System.Diagnostics.Debug.WriteLine("ERROR");
             }
+
+            
         }
     }
 }

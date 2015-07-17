@@ -16,13 +16,13 @@
                                 <label id="nombreRecetaLb">Nombre de la receta</label><br/>
                                 <input type="text" size="40" id="nombreReceta" runat="server"/><br/>
                             </div>
-                            <div class="form-group">
-                                <label id="ingredientesLb">Ingredientes</label><br/>
-                                <select id="ingredientes"  runat="server">
-                
-                                </select>
-                                <br />
+                            <div class="form-group" id="dynamicInput">
+        
+                                <label id="ingredientesLb"> Ingredientes </label><br/>
                             </div>
+                                <input type="button" value="Agregar Ingrediente" runat="server" onClick="addInput('dynamicInput');"/>
+                           
+
                             <div class="form-group">
                                 <label id="instruccionesLb">Instrucciones de la receta</label><br/>
                                 <textarea name="instruccion" cols="40" rows="6" id="instrucciones" runat="server"></textarea><br />
@@ -51,5 +51,22 @@
            </div>
            <div class="col-md-3"></div>
         </div>
+
+    <script type="text/javascript">
+        var counter = 0;
+        var limit = 50;
+        function addInput(divName) {
+            if (counter == limit) {
+                alert("You have reached the limit of adding " + counter + " inputs");
+            }
+            else {
+                var newdiv = document.createElement('div');
+                newdiv.innerHTML = "Ingrediente " + (counter + 1) + "<br/> cantidad &nbsp;&nbsp;medida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ingrediente " + " <br/> <input type='text' size='3'  name='cantidad'> <input type='text' size='10'  name='medida'> <input type='text' size='30' name='ingrediente'>";
+                document.getElementById(divName).appendChild(newdiv);
+                counter++;
+            }
+        }
+    </script>
+
 </asp:Content>
 
