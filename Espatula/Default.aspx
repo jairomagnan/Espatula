@@ -55,17 +55,19 @@
         <div class="col-md-4">
        
             <div class="thumbnail">
-                <div class="caption">
-                    <h4>Empanadas de Jamón y Queso</h4>
+                <a href="Ver.aspx?id=2">
+                    <div class="caption">
+                        <h4>Empanadas de Jamón y Queso</h4>
                 
-                </div>
+                    </div>
+                </a>
                 <img src="http://s3.amazonaws.com/gmi-digital-library/226e0d9f-b30f-4063-a321-1309d200faf7.jpg" alt="..." class="img-responsive">
             </div>
         </div>
         <div class="col-md-4">
         
                 <div class="thumbnail">
-                    <a href="Ver.aspx?id=2">
+                    <a href="Ver.aspx?id=3">
                         <div class="caption">
 
                             <h4>Parfait de Ricotta, Mango y Lima</h4>
@@ -79,10 +81,11 @@
         </div>
         <div class="col-md-4">
             <div class="thumbnail">
-                <div class="caption">
-                    <h4>Tallarines Caseros con Salsa Bolognesa</h4>
-                
-                </div>
+                <a href="Ver.aspx?id=4">
+                    <div class="caption">
+                        <h4>Tallarines Caseros con Salsa Bolognesa</h4>
+                    </div>
+                </a>
                 <img src="http://s3.amazonaws.com/gmi-digital-library/d07ebdd5-0cdf-4cb8-826b-f3639ad024a9.jpg" alt="..." class="img-responsive">
             </div>
         </div>
