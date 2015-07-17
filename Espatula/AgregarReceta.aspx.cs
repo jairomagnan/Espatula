@@ -73,13 +73,7 @@ namespace Espatula {
 
                     con.Close();
 
-                    con.Open();
-
-                    for (int i = 0; i < ingrediente.Length;++i) {
-                        MySqlCommand cmd3 = new MySqlCommand("INSERT INTO ingredientes (nombre) VALUES('" + ingrediente[i] + "')");
-                        cmd3.Connection = con;
-                        cmd3.ExecuteReader();
-                    }
+                   
                 //    con.Open();
 
                //     for (int i = 0; i < ingrediente.Length;++i) {
