@@ -61,7 +61,7 @@
             }
             else {
                 var newdiv = document.createElement('div');
-                newdiv.innerHTML = "Ingrediente " + (counter + 1) + "<br/> cantidad &nbsp;&nbsp;medida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ingrediente " + " <br/> <input type='text' size='3'  name='cantidad'> <input type='text' size='10'  name='medida'> <input type='text' size='30' name='ingrediente'>";
+                newdiv.innerHTML = "Ingrediente " + (counter + 1) + "<br/> cantidad &nbsp;&nbsp;medida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ingrediente " + " <br/> <input type='text' size='3'  name='cantidad' placeholder='2'> <input type='text' size='10'  name='medida' placeholder='tazas'> <input type='text' size='30' name='ingrediente' placeholder='azucar (ingrediente en singular)'>";
                 document.getElementById(divName).appendChild(newdiv);
                 counter++;
             }

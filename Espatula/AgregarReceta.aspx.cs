@@ -63,6 +63,9 @@ namespace Espatula {
 
                     con.Close();
 
+                    
+                   
+
                     con.Open();
 
                     MySqlCommand cmd2 = new MySqlCommand("SELECT * FROM recetas Where imagen='"+imagen.Value+"'", con);
@@ -71,6 +74,17 @@ namespace Espatula {
                     String idReceta = Convert.ToString(cmd2.ExecuteScalar());
                     System.Diagnostics.Debug.WriteLine(idReceta);
 
+                    con.Close();
+
+                    con.Open();
+
+                    for (int i = 0; i < ingrediente.Length; ++i) {
+
+                        MySqlCommand cmd3 = new MySqlCommand("INSERT INTO ingredientes (nombre) " + "VALUES('" + ingrediente[i] + "')", con);
+                        cmd3.Connection = con;
+
+                        cmd3.ExecuteReader();
+                    }
                     con.Close();
 
                 //    con.Open();
