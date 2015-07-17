@@ -24,7 +24,7 @@ namespace Espatula
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            /*valor = Convert.ToInt32(Request.QueryString["id"]);
+            valor = Convert.ToInt32(Request.QueryString["id"]);
             nombre.Append("<h2> ");
             instrucciones.Append("<h3> Instrucciones: </h3> <p class=\"lead\"> ");
             //myLabel.Text = " "+valor;
@@ -73,8 +73,8 @@ namespace Espatula
                 //Append the HTML string to Placeholder.
                 //PlaceHolder1.Controls.Add(new Literal { Text = datos.ToString() });
               
-             }*/
-            VerTodo();
+             }
+            //VerTodo();
             
         }
 

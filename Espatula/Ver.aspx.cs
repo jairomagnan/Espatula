@@ -91,8 +91,8 @@ namespace Espatula
 
             try
             {
-                //string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
-                string constr = @"Data Source=localhost; Database=espatula; User ID=root; Password=admin";
+                string constr = ConfigurationManager.ConnectionStrings["ci2454_eb04539ConnectionString"].ConnectionString;
+                //string constr = @"Data Source=localhost; Database=espatula; User ID=root; Password=admin";
                 using (MySqlConnection con = new MySqlConnection(constr))
                 {
                     using (MySqlCommand cmd = new MySqlCommand("SELECT r.nombre,r.instrucciones,r.imagen,i.nombre,ri.cantidad,ri.unidadDeMedida,r.tips,r.calificacion "+
