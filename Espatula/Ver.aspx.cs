@@ -11,54 +11,71 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-namespace Espatula {
+namespace Espatula
+{
 
-    public partial class WebForm1 : System.Web.UI.Page {
+    public partial class WebForm1 : System.Web.UI.Page
+    {
 
-        StringBuilder table = new StringBuilder();
+        StringBuilder datos = new StringBuilder();
 
-        protected void Page_Load(object sender, EventArgs e){
+        StringBuilder nombre = new StringBuilder();
+        StringBuilder ingredientes = new StringBuilder();
+        StringBuilder instrucciones = new StringBuilder();
+        string imagen;
+        int valor;
 
-            myLabel.Text = "Hola " + Request.QueryString["id"];
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            valor = Convert.ToInt32(Request.QueryString["id"]);
+            nombre.Append("<h2> ");
+            instrucciones.Append("<h3> Instrucciones: </h3> <p class=\"lead\"> ");
+            //myLabel.Text = " "+valor;
+
             if (!Page.IsPostBack)
             {
 
                 DataTable dt = this.GetData();
-
-                //Building an HTML string.
-                StringBuilder html = new StringBuilder();
-
-                //Table start.
-                html.Append("<table border = '1'>");
-
-                //Building the Header row.
-                html.Append("<tr>");
-                foreach (DataColumn column in dt.Columns)
-                {
-                    html.Append("<th>");
-                    html.Append(column.ColumnName);
-                    html.Append("</th>");
-                }
-                html.Append("</tr>");
-
+                int i = 0;
                 //Building the Data rows.
                 foreach (DataRow row in dt.Rows)
                 {
-                    html.Append("<tr>");
+
                     foreach (DataColumn column in dt.Columns)
                     {
-                        html.Append("<td>");
-                        html.Append(row[column.ColumnName]);
-                        html.Append("</td>");
+
+                        switch (i)
+                        {
+                            case 0:
+                                nombre.Append(row[column.ColumnName]);
+                                break;
+                            case 1:
+                                instrucciones.Append(row[column.ColumnName]);
+                                break;
+                            case 2:
+                                imagen = Convert.ToString(row[column.ColumnName]);
+                                break;
+
+
+                        }
+                        
+                        ++i;
                     }
-                    html.Append("</tr>");
+
                 }
 
                 //Table end.
-                html.Append("</table>");
-
+                nombre.Append("</h2>");
+                instrucciones.Append("</p>");
+                instrucciones = instrucciones.Replace("-"," <br /> -");
+                
+                string imagenACargar = "<img src=\" "+imagen+" \" alt=\"empanadas\">";
+                datos.Append(nombre);
+                datos.Append(imagenACargar);
+                datos.Append(instrucciones);
                 //Append the HTML string to Placeholder.
-                PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
+                PlaceHolder1.Controls.Add(new Literal { Text = datos.ToString() });
             }
         }
 
@@ -71,7 +88,7 @@ namespace Espatula {
 
                 using (MySqlConnection con = new MySqlConnection(constr))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Ingredientes"))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT r.nombre,r.instrucciones,r.imagen,i.nombre,ri.cantidad,ri.unidadDeMedida,r.tips,r.calificacion FROM Recetas r,Ingredientes i,Rec_Ing ri WHERE r.id= " + valor + " AND r.id = ri.receta"))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
                         {
