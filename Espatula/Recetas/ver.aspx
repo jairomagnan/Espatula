@@ -9,7 +9,7 @@
 
             
             
-            <div class="row" style="float:left">
+            <div class="row" style="float:right">
                 <asp:TextBox ID="txBuscar" runat="server" placeholder="Buscar..."></asp:TextBox>
                 <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar"  />
 
