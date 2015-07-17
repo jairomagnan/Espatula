@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+
     <div class="jumbotron">
         <h1>La Espatula</h1>
         <p class="lead">La Espatula es una p&aacute;gina especializada en recetas de cocina, en espa&ntilde;ol, en la cual los usuarios pueden compartir sus recetas, y buscar su receta 

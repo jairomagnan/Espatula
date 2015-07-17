@@ -5,7 +5,12 @@
         <h1>Puré</h1>
         <asp:Label id="myLabel" runat="server" />
 
+        
+
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
         
     </div>
+
+    
+
 </asp:Content>
