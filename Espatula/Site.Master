@@ -54,16 +54,15 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recetas <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href=Ver>Ver recetas</a></li>
-                                <li><a href=AgregarReceta>Agregar recetas</a></li>
+                                <li><a href="/Recetas/buscar" runat="server">Ver recetas</a></li>
+                                <li><a href="/AgregarReceta.aspx" runat="server">Agregar recetas</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredientes <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href=Ingredientes/agregar>agregar ingredientes</a></li>
-                                <li><a href=AgregarReceta>Agregar recetas</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="~/Ingredientes/buscarIng" runat="server">Buscar Ingredientes</a></li>
+                                <li><a href="~/Ingredientes/agregar" runat="server">Agregar ingredientes</a></li>
                             </ul>
                         </li>
                         <li><a runat="server" href="~/About">About</a></li>

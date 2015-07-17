@@ -175,7 +175,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Ingredientes\agregar.aspx" />
-    <Content Include="Ingredientes\ver.aspx" />
+    <Content Include="Ingredientes\buscarIng.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -371,12 +371,12 @@
     <Compile Include="Ingredientes\agregar.aspx.designer.cs">
       <DependentUpon>agregar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ingredientes\ver.aspx.cs">
-      <DependentUpon>ver.aspx</DependentUpon>
+    <Compile Include="Ingredientes\buscarIng.aspx.cs">
+      <DependentUpon>buscarIng.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ingredientes\ver.aspx.designer.cs">
-      <DependentUpon>ver.aspx</DependentUpon>
+    <Compile Include="Ingredientes\buscarIng.aspx.designer.cs">
+      <DependentUpon>buscarIng.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
